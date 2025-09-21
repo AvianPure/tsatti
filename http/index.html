@@ -14,23 +14,40 @@
             </div>
         </div>
 
-        <div class="inputs">
-            <div class="left">
-                <textarea placeholder="Viesti..." class="messagefield" name="messagefield" id="messagefield"></textarea>
-            </div>
-            
-            <div class="right">
-                <button class="basicbutton" name="send" id="send">Lähetä</button>
-                <button name="settings" id="settings" class="basicbutton">Asetukset</button>
-            </div>
-            
+        <div class="inputs" id="inputsdiv"> 
+            <textarea placeholder="Viesti..." class="messagefield" name="messagefield" id="messagefield"></textarea>
+            <button class="basicbutton" name="send" id="send">Lähetä</button>
+            <button name="settingsbutton" id="settingsbutton" class="basicbutton">Asetukset</button>
         </div>
-        <!--    Settings osio, kesken!
-        <div class="settings">
-            <input type="text" name="username" id="username">
-            <select name="sound" id="sound">Ääni-ilmoitus</select>
+
+        <div class="settings" id="settings">
+            <label for="username">Käyttäjänimi:</label>
+            <input type="text" name="chatname" id="chatname"><br><br>
+            <input type="checkbox" name="sound" id="sound" value="true" checked>
+            <label for="sound">Ääni-ilmoitus</label>
+            <button name="savesettings" id="savesettings" class="savesettings">Tallenna</button>
         </div>
-        -->
     </div>
+
+
+    <script>
+        chattername = "Chatter";
+        chatName = document.getElementById("chatname");
+        settingsButton = document.getElementById("settingsbutton");
+        inputsDiv = document.getElementById("inputsdiv");
+        settingsDiv = document.getElementById("settings");
+        saveSettingsButton = document.getElementById("savesettings");
+
+        settingsbutton.addEventListener("click", function() {
+            chatName.value = chattername;
+            inputsdiv.style.display = "none";
+            settingsDiv.style.display = "block";
+        });
+
+        saveSettingsButton.addEventListener("click", function() {
+            inputsdiv.style.display = "block";
+            settingsDiv.style.display = "none";
+        });
+    </script>
 </body>
 </html>
